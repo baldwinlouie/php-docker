@@ -1,5 +1,5 @@
 # Cloud Orchestrator Dockerfile
-FROM php:8.1.16-apache-bullseye
+FROM php:8.0-apache-bullseye
 
 RUN set -eux; \
   if command -v a2enmod; then \
@@ -18,6 +18,7 @@ RUN set -eux; \
     libpng-dev \
     libzip-dev \
     mariadb-client \
+    postfix \
     unzip \
     zip \
     zlib1g > /dev/null 2>&1
