@@ -18,6 +18,7 @@ RUN set -eux; \
     libpng-dev \
     libzip-dev \
     mariadb-client \
+    rsyslog \
     unzip \
     zip \
     zlib1g > /dev/null 2>&1
