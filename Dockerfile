@@ -20,7 +20,7 @@ RUN set -eux; \
     mariadb-client \
     unzip \
     zip \
-    zlib1g > /dev/null 2>&1; \
+    zlib1g > /dev/null 2>&1
 
 RUN set -eux; \
   HOSTNAME="$(hostname)"; \
