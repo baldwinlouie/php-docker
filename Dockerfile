@@ -18,10 +18,15 @@ RUN set -eux; \
     libpng-dev \
     libzip-dev \
     mariadb-client \
-    postfix \
     unzip \
     zip \
-    zlib1g > /dev/null 2>&1
+    zlib1g > /dev/null 2>&1 \
+
+RUN set -eux; \
+  HOSTNAME=`hostname` \
+  debconf-set-selections <<< "postfix postfix/mailname string ${HOSTNAME}" \
+  debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'" \
+  DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes postfix > /dev/null 2>&1 \
 
 # Install PHP libraries and etc.
 RUN set -eux; \
