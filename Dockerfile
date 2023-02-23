@@ -24,7 +24,7 @@ RUN set -eux; \
     zlib1g > /dev/null 2>&1
 
 RUN set -eux; \
-  service rsyslog start;
+  service rsyslog start; \
   HOSTNAME="$(hostname)"; \
   echo "postfix postfix/mailname string ${HOSTNAME}" | debconf-set-selections; \
   echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections; \
