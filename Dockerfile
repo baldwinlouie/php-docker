@@ -24,11 +24,11 @@ RUN set -eux; \
     zlib1g > /dev/null 2>&1
 
 RUN set -eux; \
-  service rsyslog start; \
   HOSTNAME="$(hostname)"; \
   echo "postfix postfix/mailname string ${HOSTNAME}" | debconf-set-selections; \
   echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections; \
   DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes postfix > /dev/null 2>&1; \
+  service rsyslog start; \
   service postfix restart > /dev/null 2>&1
 
 # Install PHP libraries and etc.
