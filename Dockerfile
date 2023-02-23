@@ -17,6 +17,7 @@ RUN set -eux; \
     libmemcached-dev \
     libpng-dev \
     libzip-dev \
+    mail  \
     mariadb-client \
     rsyslog \
     unzip \
